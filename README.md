@@ -1,30 +1,31 @@
-# Tessera Realms
+# Battle of the Tiles
 
-A turn-based strategy game that runs from one HTML file. Hosted on GitHub Pages, it plays inside an X post through a player card.
+Een turn-based strategiegame in één HTML-bestand. Via GitHub Pages zet je hem online, en dankzij een player card speel je hem direct in een post op X.
 
-## Put it online (GitHub Pages)
+## Online zetten (GitHub Pages)
 
-1. Create a new public repository on GitHub called `tessera-realms`.
-2. Upload `index.html`, `preview.png` and `.nojekyll` to the root of the repository.
-3. Go to **Settings → Pages**, set **Source** to *Deploy from a branch*, pick `main` and `/ (root)`, and save.
-4. After a minute the game is live at `https://YOUR-USERNAME.github.io/tessera-realms/`.
+1. Maak op GitHub een nieuwe openbare repository met de naam `battle-of-the-tiles`.
+2. Upload `index.html`, `preview.png` en `.nojekyll` naar de hoofdmap van de repository.
+3. Ga naar **Settings → Pages**, zet **Source** op *Deploy from a branch*, kies `main` en `/ (root)` en klik op Save.
+4. Na ongeveer een minuut staat de game op `https://JOUW-GEBRUIKERSNAAM.github.io/battle-of-the-tiles/`.
 
-## Fill in your details
+## Je gegevens invullen
 
-Open `index.html` and replace, in the `<head>`:
+Open `index.html` en vervang in de `<head>`:
 
-- `YOUR-USERNAME` with your GitHub username (it appears in 6 tags).
-- `@YOUR-X-HANDLE` with your X handle.
+- `YOUR-USERNAME` door je GitHub-gebruikersnaam (staat er 6 keer in).
+- `@YOUR-X-HANDLE` door je X-naam.
 
-If you name the repository something other than `tessera-realms`, change that part of the URLs too. Commit the change.
+Heet je repository anders dan `battle-of-the-tiles`, pas dat deel van de links dan ook aan. Sla de wijziging op (Commit changes).
 
-## Share it on X
+## Delen op X
 
-Post the bare link `https://YOUR-USERNAME.github.io/tessera-realms/`. X reads the `twitter:card="player"` tags and shows the game in an iframe inside the post. Where the inline player is not supported (some apps and clients), X shows `preview.png` with the link instead.
+Plaats de kale link `https://JOUW-GEBRUIKERSNAAM.github.io/battle-of-the-tiles/` in een post. X leest de `twitter:card="player"`-tags en toont de game in een venster in de post. Apps en clients die dat niet ondersteunen, tonen `preview.png` met de link.
 
-## Notes
+## Goed om te weten
 
-- Every URL in the card tags must be an absolute `https://` link, which GitHub Pages provides.
-- X caches cards. If you change the tags after posting, it can take a while before a new post picks up the update.
-- Solo and hotseat modes work everywhere. Online rooms only work in the claude.ai version, so that button is hidden here.
-- Saved games use the browser's local storage. Inside the X iframe the browser may block that, in which case the game still plays but won't resume later.
+- Alle links in de card-tags moeten volledige `https://`-links zijn. GitHub Pages regelt dat voor je.
+- X onthoudt kaarten een tijdje. Pas je de tags aan nadat je al gepost hebt, dan kan het even duren voordat een nieuwe post de wijziging laat zien.
+- Solo, hotseat-multiplayer en de tutorial werken overal. Online kamers werken alleen in de claude.ai-versie; in het Multiplayer-menu staat dat erbij.
+- Muziek en geluidseffecten worden in de browser gemaakt en starten na je eerste tik, omdat browsers geluid daarvoor blokkeren. Zet ze uit of zachter bij Settings.
+- Opgeslagen games, instellingen en high scores staan in de opslag van je browser. In het venster op X kan de browser dat blokkeren. De game werkt dan nog steeds, maar onthoudt niets.

@@ -3,24 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Tessera Realms</title>
+<title>Battle of the Tiles</title>
 <meta name="description" content="A turn-based strategy game of tiles and tough choices. Play right in the post.">
 <!-- X / Twitter player card: the game plays inside the post -->
 <meta name="twitter:card" content="player">
 <meta name="twitter:site" content="@YOUR-X-HANDLE">
-<meta name="twitter:title" content="Tessera Realms">
+<meta name="twitter:title" content="Battle of the Tiles">
 <meta name="twitter:description" content="Eight realms, one map. Tap to play right here.">
-<meta name="twitter:url" content="https://YOUR-USERNAME.github.io/tessera-realms/">
-<meta name="twitter:player" content="https://YOUR-USERNAME.github.io/tessera-realms/">
+<meta name="twitter:url" content="https://YOUR-USERNAME.github.io/battle-of-the-tiles/">
+<meta name="twitter:player" content="https://YOUR-USERNAME.github.io/battle-of-the-tiles/">
 <meta name="twitter:player:width" content="1200">
 <meta name="twitter:player:height" content="675">
-<meta name="twitter:image" content="https://YOUR-USERNAME.github.io/tessera-realms/preview.png">
+<meta name="twitter:image" content="https://YOUR-USERNAME.github.io/battle-of-the-tiles/preview.png">
 <!-- Open Graph fallback for other sites -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Tessera Realms">
+<meta property="og:title" content="Battle of the Tiles">
 <meta property="og:description" content="A turn-based strategy game of tiles and tough choices.">
-<meta property="og:url" content="https://YOUR-USERNAME.github.io/tessera-realms/">
-<meta property="og:image" content="https://YOUR-USERNAME.github.io/tessera-realms/preview.png">
+<meta property="og:url" content="https://YOUR-USERNAME.github.io/battle-of-the-tiles/">
+<meta property="og:image" content="https://YOUR-USERNAME.github.io/battle-of-the-tiles/preview.png">
 <style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Figtree:wght@400;500;600;700&display=swap">
@@ -93,7 +93,7 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid 
 @keyframes tin{from{opacity:0;transform:translateY(-6px)}}
 
 /* modal */
-.modal{position:absolute;inset:0;background:rgba(5,12,22,.62);display:flex;align-items:center;justify-content:center;padding:16px;z-index:20}
+.modal{position:absolute;inset:0;background:rgba(5,12,22,.62);display:flex;align-items:center;justify-content:center;padding:16px;z-index:40}
 .mbox{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:18px 20px;max-width:min(1100px,100%);max-height:90%;overflow:auto;box-shadow:0 30px 60px rgba(0,0,0,.5);min-width:0}
 .mbox h2{font-family:var(--display);font-weight:800;font-size:1.8rem;margin:0 0 .2rem;line-height:1.1;text-wrap:balance}
 .mhead{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.6rem}
@@ -120,6 +120,7 @@ table.sc td.r,table.sc th.r{text-align:right;font-variant-numeric:tabular-nums}
 
 /* menu */
 #menu{position:absolute;inset:0;overflow:auto;z-index:30;background:linear-gradient(180deg,rgba(9,22,36,.35),rgba(9,22,36,.9) 70%)}
+@media (min-width:901px){#menu{background:linear-gradient(90deg,rgba(9,22,36,.92) 0,rgba(9,22,36,.7) 38%,rgba(9,22,36,.1) 70%)}}
 .mwrap{max-width:1040px;margin:0 auto;padding:calc(env(safe-area-inset-top,0px) + 40px) 16px calc(env(safe-area-inset-bottom,0px) + 40px);display:flex;flex-direction:column;gap:22px}
 .logo{font-family:var(--display);font-weight:800;font-size:clamp(3rem,9vw,6.2rem);line-height:.86;margin:0;letter-spacing:-.01em;text-shadow:0 6px 0 rgba(0,0,0,.25)}
 .logo span{color:var(--gold)}
@@ -161,6 +162,40 @@ select,input[type=text]{background:var(--panel2);color:var(--text);border:1px so
   .hidesm{display:none}
   #toasts{top:calc(env(safe-area-inset-top,0px) + 112px)}
 }
+.menu-main{display:flex;flex-direction:column;gap:12px;max-width:360px}
+.bigbtn{font-family:var(--display);font-weight:800;font-size:1.55rem;line-height:1.1;padding:.65rem 1.2rem;border-radius:18px;background:rgba(31,53,82,.92);border:1px solid var(--line);text-align:left;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:transform .12s,background .15s}
+.bigbtn:hover{transform:translateX(3px);background:#284468}
+.bigbtn.gold{background:var(--gold);color:#2a1d00;border-color:transparent}
+.bigbtn.gold:hover{background:#ffd776}
+.bigbtn small{font-family:var(--body);font-weight:600;font-size:.78rem;opacity:.72}
+.iconrow{display:flex;gap:18px;flex-wrap:wrap}
+.iconbtn{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:.8rem;font-weight:600;color:var(--muted)}
+.iconbtn .ic{width:60px;height:60px;border-radius:50%;background:rgba(31,53,82,.92);border:1px solid var(--line);display:grid;place-items:center;transition:transform .12s,border-color .15s}
+.iconbtn:hover .ic{transform:translateY(-2px);border-color:var(--gold)}
+.iconbtn svg{width:26px;height:26px;stroke:var(--text);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.realmgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.realm{background:var(--panel2);border:1px solid var(--line);border-radius:18px;padding:10px 8px 12px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;transition:transform .12s,border-color .15s}
+.realm:hover{transform:translateY(-3px);border-color:var(--gold)}
+.realm canvas{width:120px;height:85px}
+.realm b{font-family:var(--display);font-size:1.2rem;line-height:1.1}
+.realm span{font-size:.74rem;color:var(--muted)}
+.rdetail{display:grid;grid-template-columns:260px minmax(0,1fr);gap:20px;align-items:center}
+.rdetail canvas{width:260px;max-width:100%;height:auto;aspect-ratio:240/170}
+@media (max-width:640px){.rdetail{grid-template-columns:1fr;justify-items:center}}
+.set-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:.7rem 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.toggle{width:52px;height:30px;border-radius:999px;background:#3a4a60;position:relative;flex:none}
+.toggle::after{content:"";position:absolute;left:4px;top:4px;width:22px;height:22px;border-radius:50%;background:#fff;transition:left .15s}
+.toggle[aria-pressed="true"]{background:var(--mint)}
+.toggle[aria-pressed="true"]::after{left:26px}
+input[type=range]{accent-color:var(--gold);width:140px}
+#tut{position:absolute;left:50%;transform:translateX(-50%);top:calc(env(safe-area-inset-top,0px) + 62px);width:min(460px,calc(100% - 32px));background:rgba(18,32,50,.97);border:1.5px solid var(--gold);border-radius:16px;padding:12px 14px;z-index:15;box-shadow:0 14px 30px rgba(0,0,0,.4)}
+#tut h4{margin:0 0 .2rem;font-family:var(--display);font-size:1.2rem;line-height:1.15}
+#tut p{margin:0 0 .5rem;font-size:.9rem;line-height:1.45}
+#tut .tf{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+#tut .tc{font-size:.75rem;color:var(--muted)}
+#tut .btn{padding:.4rem .7rem;font-size:.85rem}
+.tut-on #toasts{top:calc(env(safe-area-inset-top,0px) + 205px)}
+@media (max-width:640px){#tut{top:calc(env(safe-area-inset-top,0px) + 108px)}.tut-on #toasts{top:calc(env(safe-area-inset-top,0px) + 260px)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -180,6 +215,7 @@ select,input[type=text]{background:var(--panel2);color:var(--text);border:1px so
   <section id="panel" hidden></section>
   <button id="endTurn" hidden>End<br>turn<small id="etSub"></small></button>
   <div id="modal" class="modal" hidden><div class="mbox" id="mbox"></div></div>
+  <div id="tut" hidden></div>
   <div id="pass" hidden></div>
   <div id="menu"><div class="mwrap" id="mwrap"></div></div>
 </div>
@@ -261,7 +297,7 @@ const UNITS={
 const UNIT_ORDER=['warrior','scout','rider','archer','defender','sword','siege','ship','colossus'];
 const DIFF={easy:{stars:0,inc:0},normal:{stars:2,inc:1},hard:{stars:5,inc:2}};
 
-const HOOK={toast(){},float(){},lunge(){},flash(){},changed(){},async pause(){}};
+const HOOK={toast(){},float(){},lunge(){},flash(){},moved(){},changed(){},async pause(){}};
 let S=null;
 
 /* ===================== UTILS ===================== */
@@ -419,7 +455,7 @@ function calc(a,d){const A=uStat(a),D=uStat(d);const aF=A.atk*(a.hp/A.maxhp),dF=
 function promote(u){if(!u.vet&&u.kills>=3){u.vet=true;u.hp+=5;HOOK.float(u.x,u.y,'Veteran!','#ffc94d')}}
 function killUnit(u){const i=S.units.indexOf(u);if(i>=0)S.units.splice(i,1)}
 function doMove(u,x,y){u.x=x;u.y=y;u.moved=true;const t=T(x,y);if(!UNITS[u.type].naval)u.boat=isWater(t);reveal(u.owner,x,y,vision(u));
- if(t.ruin&&!isWater(t)){t.ruin=false;ruin(u)}HOOK.changed()}
+ HOOK.moved(u);if(t.ruin&&!isWater(t)){t.ruin=false;ruin(u)}HOOK.changed()}
 function ruin(u){const pi=u.owner,p=S.players[pi],r=Math.random();let msg;
  if(r<.3){p.stars+=8;msg='found a hoard of 8 stars'}
  else if(r<.52){const opts=TECH.filter(t=>t.tier===1&&!has(pi,t.id));if(opts.length){const t=opts[Math.floor(Math.random()*opts.length)];p.techs.push(t.id);msg='recovered the secret of '+t.name}else{p.stars+=8;msg='found 8 stars'}}
@@ -567,7 +603,7 @@ function drawDecor(x,y,t,X,Y,now){const ty=topY(t,Y),h=hash(x,y);
  switch(t.t){
  case'forest':tree(X-13,ty+1,.9,'#3f8a3c');tree(X+11,ty-2,1,'#4c9a42');tree(X+1,ty+7,.85,'#3a7f37');break;
  case'mountain':{poly([X-27,ty+2,X,ty+12,X+2,ty-30],'#7b7466');poly([X,ty+12,X+26,ty+1,X+2,ty-30],'#b2aa9b');poly([X-7,ty-14,X+2,ty-30,X+2,ty-12],'#f4f6f8');poly([X+2,ty-30,X+9,ty-14,X+2,ty-12],'#dfe6ec');
-  if(T(x,y).imp==='mine'){poly([X-14,ty+6,X-6,ty+8,X-6,ty+1,X-10,ty-2,X-14,ty+1],'#2b2622')}break}
+  if(t.imp==='mine'){poly([X-14,ty+6,X-6,ty+8,X-6,ty+1,X-10,ty-2,X-14,ty+1],'#2b2622')}break}
  case'desert':ctx.strokeStyle='rgba(160,120,60,.45)';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(X-16,ty+2);ctx.quadraticCurveTo(X-8,ty-4,X,ty+2);ctx.moveTo(X+4,ty+6);ctx.quadraticCurveTo(X+11,ty+1,X+18,ty+6);ctx.stroke();break;
  case'snow':poly([X+8,ty+4,X+12,ty-6,X+16,ty+4],'#cfdbe5');poly([X-14,ty+2,X-11,ty-4,X-8,ty+2],'#dbe5ee');break;
  case'grass':if(h%3===0){ctx.strokeStyle='#5f9a3b';ctx.lineWidth=1.4;ctx.beginPath();for(const o of[-10,8]){ctx.moveTo(X+o,ty+4);ctx.lineTo(X+o-2,ty-1);ctx.moveTo(X+o,ty+4);ctx.lineTo(X+o+2,ty-1)}ctx.stroke()}break}
@@ -664,7 +700,7 @@ function render(now){requestAnimationFrame(render);ctx.setTransform(DPR,0,0,DPR,
    if(t.city>=0)drawCity(S.cities[t.city],X,Y);
    if(state===1){poly(diamond(X,topY(t,Y),HW,HH),'rgba(8,18,32,.38)')}
    // highlights
-   if(selU){const ty=topY(t,Y);if(hl.moves.has(k)){poly(diamond(X,ty,HW-5,HH-2.5),'rgba(255,255,255,.22)','rgba(255,255,255,.65)',1.4)}
+   if(selU){const ty=topY(t,Y);if(hl.moves.has(k)){poly(diamond(X,ty,HW-5,HH-2.5),'rgba(255,255,255,.3)','rgba(255,255,255,.9)',2)}
     if(hl.targets.some(e=>e.x===x&&e.y===y)){const p=.6+Math.sin(now/180)*.25;poly(diamond(X,ty,HW-4,HH-2),'rgba(255,106,92,.18)',`rgba(255,106,92,${p})`,3)}}
    if(sel&&((sel.kind==='tile'&&sel.x===x&&sel.y===y)||(sel.kind==='city'&&S.cities[sel.id].x===x&&S.cities[sel.id].y===y))){poly(diamond(X,topY(t,Y),HW-2,HH-1),null,'#ffc94d',2.5)}
   }
@@ -678,6 +714,7 @@ function render(now){requestAnimationFrame(render);ctx.setTransform(DPR,0,0,DPR,
  for(let i=flashes.length-1;i>=0;i--){const f=flashes[i],p=(now-f.t0)/700;if(p>=1){flashes.splice(i,1);continue}if(V>=0&&!vis[K(f.x,f.y)])continue;const{X,Y}=iso(f.x,f.y);ctx.globalAlpha=1-p;poly(diamond(X,Y-7,HW*(.6+p*.7),HH*(.6+p*.7)),null,f.c,3);ctx.globalAlpha=1}
  for(let i=floaters.length-1;i>=0;i--){const f=floaters[i],p=(now-f.t0)/1300;if(p>=1){floaters.splice(i,1);continue}if(V>=0&&!vis[K(f.x,f.y)])continue;const{X,Y}=iso(f.x,f.y);
   ctx.globalAlpha=p<.75?1:1-(p-.75)/.25;ctx.font='800 16px "Baloo 2", sans-serif';ctx.textAlign='center';ctx.lineWidth=4;ctx.strokeStyle='rgba(10,20,34,.9)';const yy=Y-40-p*26;ctx.strokeText(f.text,X,yy);ctx.fillStyle=f.c;ctx.fillText(f.text,X,yy);ctx.globalAlpha=1}
+ if(TUT&&myTurn()&&TSTEPS[TUT.step].tg){const tg=tutTarget(TSTEPS[TUT.step].tg);if(tg){const{X,Y}=iso(tg[0],tg[1]);const b=Math.sin(now/220)*5;poly([X-10,Y-66+b,X+10,Y-66+b,X,Y-50+b],'#ffc94d','#2a1d00',2)}}
 }
 requestAnimationFrame(render);
 
@@ -685,10 +722,11 @@ requestAnimationFrame(render);
 const toastBox=$('#toasts');
 function toast(msg){const d=document.createElement('div');d.className='toast';d.textContent=msg;toastBox.appendChild(d);while(toastBox.children.length>3)toastBox.firstChild.remove();setTimeout(()=>d.remove(),3200)}
 HOOK.toast=(pi,msg)=>{if(demo||mode!=='game')return;const who=[].concat(pi);if(VIEW<0||who.includes(-1)||who.includes(VIEW))toast(msg)};
-HOOK.float=(x,y,text,c)=>{if(!demo)floaters.push({x,y,text,c,t0:performance.now()})};
-HOOK.lunge=(a,d)=>{lunges.push({id:a.id,tx:d.x,ty:d.y,t0:performance.now()})};
-HOOK.flash=(x,y,c)=>flashes.push({x,y,c,t0:performance.now()});
-HOOK.pause=async u=>{if(VIEW>=0&&visibleSet(VIEW)[K(u.x,u.y)]){ui();await new Promise(r=>setTimeout(r,320))}};
+HOOK.float=(x,y,text,c)=>{if(demo)return;floaters.push({x,y,text,c,t0:performance.now()});if(/^Level/.test(text)&&seen(x,y))sfx('level')};
+HOOK.lunge=(a,d)=>{lunges.push({id:a.id,tx:d.x,ty:d.y,t0:performance.now()});if(seen(d.x,d.y)||seen(a.x,a.y))sfx('attack')};
+HOOK.moved=u=>{if(seen(u.x,u.y))sfx('move')};
+HOOK.flash=(x,y,c)=>{flashes.push({x,y,c,t0:performance.now()});if(seen(x,y))sfx(c==='#ffc94d'?'build':'capture')};
+HOOK.pause=async u=>{const ms=AI_DELAY[SET.aiSpeed]??320;if(ms&&VIEW>=0&&visibleSet(VIEW)[K(u.x,u.y)]){ui();await new Promise(r=>setTimeout(r,ms))}};
 
 /* ---------- helpers ---------- */
 function isMine(pi){const p=S.players[pi];if(!p||!p.human)return false;if(S.online)return online&&p.uid===online.me;return true}
@@ -702,7 +740,7 @@ function ui(){if(!S||mode!=='game')return;const pi=VIEW>=0?VIEW:S.cur,p=S.player
  $('#hStars').textContent=p.stars;$('#hInc').textContent='+'+income(pi);
  $('#hTurn').textContent=S.mode==='score'?`${Math.min(S.turn,S.limit)}/${S.limit}`:S.turn;$('#hScore').textContent=score(pi).toLocaleString();
  const et=$('#endTurn');et.disabled=!myTurn()||S.pending.length>0;$('#etSub').textContent=busy?'AI thinking…':!myTurn()&&!S.over?'Waiting':'';
- refreshHL();renderPanel();if(S.pending.length&&myTurn()&&$('#modal').hidden)showLevelUp()}
+ refreshHL();renderPanel();if(S.pending.length&&myTurn()&&$('#modal').hidden)showLevelUp();tutUpdate()}
 HOOK.changed=()=>{};
 function stat(l,v){return`<span>${l} <b>${v}</b></span>`}
 function renderPanel(){const P=$('#panel');if(!sel||mode!=='game'){P.hidden=true;P.innerHTML='';return}P.hidden=false;let h='';const me=VIEW,mine=myTurn();
@@ -736,7 +774,7 @@ $('#panel').addEventListener('click',e=>{const b=e.target.closest('[data-act]');
  else if(a==='rest'){rest(getUnit(sel.id));afterAction()}
  else if(a==='train'){const u=train(me,sel.id,v);if(u)toast(`${UNITS[v].name} trained`);afterAction()}
  else if(a==='build'){build(me,sel.id,v);afterAction()}
- else if(a==='harvest'){harvest(me,sel.x,sel.y);afterAction()}});
+ else if(a==='harvest'){if(harvest(me,sel.x,sel.y)&&TUT)TUT.flags.harvest=true;afterAction()}});
 function afterAction(){if(S.over){ui();gameOver();return}saveLocal();ui()}
 
 /* ---------- input ---------- */
@@ -754,7 +792,7 @@ function zoomAt(sx,sy,z){z=Math.max(.45,Math.min(2.4,z));const wx=(sx-cam.x)/cam
 function tap(x,y){if(!S||mode!=='game'||demo)return;if(!inb(x,y)){sel=null;ui();return}const k=K(x,y),me=VIEW;
  if(sel?.kind==='unit'&&myTurn()){const u=getUnit(sel.id);if(u&&u.owner===me){
   const tg=hl.targets.find(d=>d.x===x&&d.y===y);if(tg){if(sel.preview===tg.id){doAttack(u,tg);sel={kind:'unit',id:u.id};if(!S.units.includes(u))sel=null;afterAction();return}const r=calc(u,tg);sel.preview=tg.id;showPreview(u,tg,r);return}
-  if(hl.moves.has(k)){doMove(u,x,y);afterAction();return}}}
+  if(hl.moves.has(k)){doMove(u,x,y);if(TUT)TUT.flags.moved=true;afterAction();return}}}
  const visible=me<0||visibleSet(me)[k],explored=me<0||S.players[me].explored[k];const u=unitAt(x,y),t=T(x,y);const opts=[];
  if(u&&visible)opts.push({kind:'unit',id:u.id});if(t.city>=0&&explored)opts.push({kind:'city',id:t.city});opts.push({kind:'tile',x,y});
  const same=sel&&((sel.kind==='unit'&&opts.some(o=>o.kind==='unit'&&o.id===sel.id))||(sel.kind==='city'&&sel.id===t.city)||(sel.kind==='tile'&&sel.x===x&&sel.y===y));
@@ -764,25 +802,26 @@ function showPreview(u,d,r){const D=uStat(d),kill=r.dmg>=d.hp,dist=cheb(u.x,u.y,
 window.addEventListener('keydown',e=>{if(e.key==='Escape'){if(!$('#modal').hidden&&!S?.pending.length)closeModal();else{sel=null;ui()}}if(e.key==='Enter'&&mode==='game'&&!$('#endTurn').disabled&&$('#modal').hidden)endTurn()});
 
 /* ---------- modals ---------- */
-function openModal(html){$('#mbox').innerHTML=html;$('#modal').hidden=false}
+function openModal(html,maxw){const b=$('#mbox');b.style.maxWidth=maxw?`min(${maxw},100%)`:'';b.innerHTML=html;$('#modal').hidden=false}
 function closeModal(){$('#modal').hidden=true;$('#mbox').innerHTML=''}
 $('#modal').addEventListener('click',e=>{if(e.target.id==='modal'&&!S?.pending.length&&!S?.over)closeModal()});
 function showTech(){const me=VIEW,p=S.players[me];let h=`<div class="mhead"><div><h2>Research</h2><p class="hint">Costs rise with every city you own. You have <b class="star">${p.stars}★</b>.</p></div><button class="btn" data-x="close">Close</button></div><div class="techgrid">`;
  for(const cat of CATS){h+=`<div class="tcol"><div class="tcat">${cat}</div>`;for(const t of TECH.filter(t=>t.cat===cat)){const own=has(me,t.id),av=techAvail(me,t.id),cost=techCost(me,t.id),can=av&&p.stars>=cost&&myTurn();
    h+=`<button class="tnode t${t.tier} ${own?'own':av?'avail':'lock'}" data-tech="${t.id}" ${can?'':'disabled'} style="${can?'':'cursor:default'}"><span class="n">${t.name}</span><span class="d">${t.desc}</span><span class="c">${own?'Known':av?cost+'★':'Needs '+t.req.map(r=>TECHMAP[r].name).join(' + ')}</span></button>`}h+='</div>'}
  openModal(h+'</div>')}
-$('#mbox').addEventListener('click',e=>{const t=e.target.closest('[data-tech]');if(t&&!t.disabled){research(VIEW,t.dataset.tech);saveLocal();showTech();ui();return}
+$('#mbox').addEventListener('click',e=>{const t=e.target.closest('[data-tech]');if(t&&!t.disabled){if(research(VIEW,t.dataset.tech))sfx('tech');saveLocal();showTech();ui();return}
  const x=e.target.closest('[data-x]');if(!x)return;const a=x.dataset.x;
  if(a==='close')closeModal();if(a==='reward'){const pd=S.pending.shift();applyReward(S.cities[pd.cid],x.dataset.v);closeModal();saveLocal();ui()}
+ if(a==='pickrealm'){closeModal();setup('solo',+x.dataset.v)}if(a==='settings'){showSettings()}
  if(a==='menu'){closeModal();toMenu()}if(a==='resume')closeModal();if(a==='concede'){closeModal();toMenu(true)}});
 function showLevelUp(){const pd=S.pending[0],c=S.cities[pd.cid];let h=`<h2>${esc(c.name)} reached level ${pd.level}</h2><p class="hint">Choose how the city celebrates.</p><div class="choice">`;
  for(const o of rewardOptions(pd.level))h+=`<button data-x="reward" data-v="${o.id}"><b>${o.t}</b><span>${o.d}</span></button>`;openModal(h+'</div>')}
 $('#bTech').onclick=()=>{if(S&&VIEW>=0)showTech()};
 $('#bMenu').onclick=()=>{const rows=S.players.map((p,i)=>({i,s:score(i),p})).sort((a,b)=>b.s-a.s);
- openModal(`<div class="mhead"><h2>Paused</h2><button class="btn" data-x="resume">Resume</button></div>${scoreTable(rows)}<p class="hint">${S.mode==='score'?`Score victory after turn ${S.limit}.`:'Domination: capture every rival city to win.'} ${S.online?'Online games keep going without you; reopen the room code to return.':'Solo and hotseat games are saved in this browser.'}</p><div class="acts"><button class="btn" data-x="menu">Main menu</button></div>`)};
+ openModal(`<div class="mhead"><h2>Paused</h2><button class="btn" data-x="resume">Resume</button></div>${scoreTable(rows)}<p class="hint">${S.mode==='score'?`Score victory after turn ${S.limit}.`:'Domination: capture every rival city to win.'} ${S.online?'Online games keep going without you; reopen the room code to return.':'Solo and hotseat games are saved in this browser.'}</p><div class="acts"><button class="btn" data-x="settings">Settings</button><button class="btn" data-x="menu">Main menu</button></div>`)};
 function scoreTable(rows){return`<table class="sc"><tr><th>Realm</th><th class="r">Cities</th><th class="r">Techs</th><th class="r">Score</th></tr>${rows.map(r=>{const f=FACTIONS[r.p.f];return`<tr><td><span class="fdot" style="display:inline-block;background:${f.color};margin-right:8px"></span>${esc(f.name)}${r.p.human?' <span class="hint">(human)</span>':''}${r.p.alive?'':' <span class="hint">fallen</span>'}</td><td class="r">${citiesOf(r.i).length}</td><td class="r">${r.p.techs.length}</td><td class="r">${r.s.toLocaleString()}</td></tr>`}).join('')}</table>`}
 function gameOver(){const rows=S.players.map((p,i)=>({i,s:score(i),p})).sort((a,b)=>b.s-a.s);const w=S.winner,wf=w>=0?FACTIONS[S.players[w].f]:null;const youWin=w>=0&&isMine(w);
- clearLocal();openModal(`<h2>${wf?(youWin?'Victory for '+esc(wf.name)+'!':esc(wf.name)+' wins'):'The realms fell silent'}</h2><p class="hint">${S.mode==='score'&&S.turn>S.limit?'The turn limit was reached.':'Only one realm still holds cities.'}</p>${scoreTable(rows)}<div class="acts"><button class="btn gold" data-x="menu">Main menu</button></div>`)}
+ recordHS();clearLocal();sfx(youWin?'level':'die');openModal(`<h2>${wf?(youWin?'Victory for '+esc(wf.name)+'!':esc(wf.name)+' wins'):'The realms fell silent'}</h2><p class="hint">${S.mode==='score'&&S.turn>S.limit?'The turn limit was reached.':'Only one realm still holds cities.'}</p>${scoreTable(rows)}<div class="acts"><button class="btn gold" data-x="menu">Main menu</button></div>`)}
 
 /* ---------- turn flow ---------- */
 $('#endTurn').onclick=()=>endTurn();
@@ -794,55 +833,207 @@ async function endTurn(){if(!myTurn()||S.pending.length)return;busy=true;sel=nul
  if(S.online){await pushOnline();ui();return}
  const humans=S.players.filter(p=>p.human&&p.alive).length;
  if(humans>1){VIEW=S.cur;showPass()}else{VIEW=S.cur;focusPlayer(S.cur)}
- saveLocal();ui()}
+ sfx('turn');saveLocal();ui()}
 function focusPlayer(pi){const c=citiesOf(pi).find(c=>c.capital)||citiesOf(pi)[0]||unitsOf(pi)[0];if(c)centerOn(c.x,c.y)}
 function showPass(){const f=FAC(S.cur),el=$('#pass');el.innerHTML=`<span class="fdot" style="width:28px;height:28px;background:${f.color}"></span><h2>${esc(f.name)}’s turn</h2><p class="hint">Pass the device. Turn ${S.turn}.</p><button class="btn gold" id="passGo">I’m ready</button>`;el.hidden=false;
- $('#passGo').onclick=()=>{el.hidden=true;focusPlayer(S.cur);ui()}}
+ $('#passGo').onclick=()=>{el.hidden=true;focusPlayer(S.cur);ui()};renderTut()}
 
 /* ---------- local save ---------- */
-function saveLocal(){if(!S||S.online||demo)return;try{localStorage.setItem('tessera-save',serialize())}catch(e){}}
-function clearLocal(){if(S&&!S.online)try{localStorage.removeItem('tessera-save')}catch(e){}}
-function loadLocal(){try{const s=localStorage.getItem('tessera-save');return s?deserialize(s):null}catch(e){return null}}
+function saveLocal(){if(!S||S.online||demo)return;try{localStorage.setItem('bott-save',serialize())}catch(e){}}
+function clearLocal(){if(S&&!S.online)try{localStorage.removeItem('bott-save')}catch(e){}}
+function loadLocal(){try{const s=localStorage.getItem('bott-save');return s?deserialize(s):null}catch(e){return null}}
 
 /* ---------- game start ---------- */
 function enterGame(){mode='game';demo=false;$('#menu').hidden=true;$('#hud').hidden=false;$('#endTurn').hidden=false;sel=null;disp.clear();closeModal();cam.z=W<640?.85:1.1}
-async function startLocal(cfg){newGame(cfg);enterGame();VIEW=0;focusPlayer(0);saveLocal();
+async function startLocal(cfg,tut){TUT=null;newGame(cfg);enterGame();VIEW=0;focusPlayer(0);saveLocal();if(tut)startTut();
  if(S.players.filter(p=>p.human).length>1)showPass();ui()}
 function continueLocal(){const s=loadLocal();if(!s)return;S=s;enterGame();VIEW=S.cur;if(!S.players[S.cur].human)VIEW=S.players.findIndex(p=>p.human);focusPlayer(VIEW);ui();if(S.players.filter(p=>p.human&&p.alive).length>1)showPass()}
-function toMenu(){mode='menu';if(online?.unsub){online.unsub();online.unsub=null}$('#hud').hidden=true;$('#endTurn').hidden=true;$('#panel').hidden=true;$('#pass').hidden=true;$('#menu').hidden=false;showDemo();menuMain()}
+function toMenu(){mode='menu';TUT=null;renderTut();closeModal();if(online?.unsub){online.unsub();online.unsub=null}$('#hud').hidden=true;$('#endTurn').hidden=true;$('#panel').hidden=true;$('#pass').hidden=true;$('#menu').hidden=false;showDemo();menuMain()}
 function showDemo(){demo=true;const seats=[0,1,2,3].map(i=>({f:(i*2+Math.floor(Math.random()*8))%8,human:false}));const fs=new Set();seats.forEach((s,i)=>{while(fs.has(s.f))s.f=(s.f+1)%8;fs.add(s.f)});
- newGame({size:16,seats,mode:'dom',diff:'normal'});VIEW=-1;cam.z=W<640?.7:1.05;centerOn(8,8);sel=null}
+ newGame({size:16,seats,mode:'dom',diff:'normal'});VIEW=-1;cam.z=W<640?.7:1.05;centerOn(8,8);if(W>900)cam.x+=W*.2;sel=null}
+
+/* ===================== SETTINGS & AUDIO ===================== */
+const ONLINE_OK=!!(window.claude&&window.claude.use);
+const SET=Object.assign({music:true,musicVol:.5,sfx:true,sfxVol:.7,aiSpeed:'normal',tutSeen:false},(()=>{try{return JSON.parse(localStorage.getItem('bott-settings')||'{}')}catch(e){return{}}})());
+function saveSet(){try{localStorage.setItem('bott-settings',JSON.stringify(SET))}catch(e){}}
+const AI_DELAY={slow:620,normal:320,fast:120,instant:0};
+const AU={ctx:null,mi:4};
+function auInit(){if(AU.ctx)return true;const C=window.AudioContext||window.webkitAudioContext;if(!C)return false;
+ try{const c=new C();AU.ctx=c;AU.master=c.createGain();AU.master.connect(c.destination);
+  AU.mus=c.createGain();AU.mus.gain.value=SET.musicVol*.6;AU.sfx=c.createGain();AU.sfx.gain.value=SET.sfxVol;
+  AU.lp=c.createBiquadFilter();AU.lp.type='lowpass';AU.lp.frequency.value=1700;AU.lp.connect(AU.mus);
+  AU.delay=c.createDelay(1);AU.delay.delayTime.value=.42;AU.fb=c.createGain();AU.fb.gain.value=.33;AU.wet=c.createGain();AU.wet.gain.value=.3;
+  AU.delay.connect(AU.fb);AU.fb.connect(AU.delay);AU.delay.connect(AU.wet);AU.wet.connect(AU.mus);
+  AU.mus.connect(AU.master);AU.sfx.connect(AU.master);
+  const len=c.sampleRate*.5,b=c.createBuffer(1,len,c.sampleRate),d=b.getChannelData(0);for(let i=0;i<len;i++)d[i]=Math.random()*2-1;AU.noise=b;return true}catch(e){AU.ctx=null;return false}}
+const mtof=m=>440*Math.pow(2,(m-69)/12);
+function note(dest,freq,t,dur,vol,type='sine',att=.01){const c=AU.ctx,o=c.createOscillator(),g=c.createGain();o.type=type;o.frequency.setValueAtTime(freq,t);
+ g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+att);g.gain.exponentialRampToValueAtTime(.0001,t+dur);o.connect(g);g.connect(dest);o.start(t);o.stop(t+dur+.05);return o}
+// generated soundtrack: four slow chords, a soft bass and a wandering pentatonic melody
+const CHORDS=[[53,57,60,64],[48,55,59,64],[45,52,55,60],[43,50,55,59]],MEL=[60,62,64,67,69,72,74,76,79,81];
+let musT=0,musStep=0,musTimer=null;
+function musicStart(){if(!SET.music||!auInit())return;if(AU.ctx.state==='suspended')AU.ctx.resume();if(musTimer)return;musT=AU.ctx.currentTime+.15;musStep=0;musTimer=setInterval(musTick,200)}
+function musicStop(){if(musTimer){clearInterval(musTimer);musTimer=null}}
+function musTick(){const c=AU.ctx,e=60/74/2;
+ while(musT<c.currentTime+.8){const s=musStep%64,ch=CHORDS[Math.floor(s/16)];
+  if(s%16===0)for(const m of ch){note(AU.lp,mtof(m),musT,e*17,.045,'triangle',1.3);note(AU.lp,mtof(m)*1.004,musT,e*17,.03,'sine',1.6)}
+  if(s%8===0)note(AU.lp,mtof(ch[0]-12),musT,e*7.5,.1,'sine',.04);
+  if(Math.random()<(s%2===0?.42:.14)){AU.mi=Math.max(0,Math.min(MEL.length-1,AU.mi+Math.floor(Math.random()*5)-2));const f=mtof(MEL[AU.mi]);note(AU.lp,f,musT,1.1,.06,'sine',.01);note(AU.delay,f,musT,.8,.035,'triangle',.01)}
+  musT+=e;musStep++}}
+function sfx(k){if(!SET.sfx||demo||!auInit())return;const c=AU.ctx;if(c.state==='suspended')c.resume();const t=c.currentTime+.01,d=AU.sfx;
+ switch(k){
+ case'click':note(d,900,t,.05,.05,'triangle');break;
+ case'move':note(d,520,t,.12,.1,'triangle');note(d,780,t+.05,.14,.08,'triangle');break;
+ case'attack':{const n=c.createBufferSource(),g=c.createGain(),f=c.createBiquadFilter();f.type='bandpass';f.frequency.value=1100;n.buffer=AU.noise;g.gain.setValueAtTime(.35,t);g.gain.exponentialRampToValueAtTime(.001,t+.22);n.connect(f);f.connect(g);g.connect(d);n.start(t);n.stop(t+.25);
+  const o=note(d,150,t,.3,.3,'sine');o.frequency.exponentialRampToValueAtTime(50,t+.3);break}
+ case'capture':[60,64,67,72].forEach((m,i)=>note(d,mtof(m+12),t+i*.08,.4,.1,'triangle'));break;
+ case'level':[67,71,74,79,83].forEach((m,i)=>note(d,mtof(m),t+i*.06,.7,.08,'sine'));break;
+ case'build':note(d,330,t,.12,.12,'triangle');note(d,494,t+.09,.18,.1,'triangle');break;
+ case'tech':{const o=note(d,420,t,.5,.1,'sine',.04);o.frequency.exponentialRampToValueAtTime(1250,t+.45);break}
+ case'turn':note(d,mtof(76),t,.9,.08,'sine');note(d,mtof(83),t+.13,1,.07,'sine');break;
+ case'die':{const o=note(d,320,t,.45,.12,'triangle');o.frequency.exponentialRampToValueAtTime(70,t+.45);break}}}
+document.addEventListener('pointerdown',()=>{if(SET.music)musicStart()});
+document.addEventListener('click',e=>{if(e.target.closest('button:not(:disabled)'))sfx('click')});
+function seen(x,y){return VIEW>=0&&S&&visibleSet(VIEW)[K(x,y)]}
+
+/* ===================== HIGH SCORES ===================== */
+function loadHS(){try{return JSON.parse(localStorage.getItem('bott-hs')||'[]')}catch(e){return[]}}
+function recordHS(){if(!S||S.hsDone)return;S.hsDone=true;const list=loadHS();
+ S.players.forEach((p,i)=>{if(!isMine(i))return;list.push({f:p.f,score:score(i),win:S.winner===i,turn:Math.min(S.turn,S.mode==='score'?S.limit:S.turn),size:S.w,mode:S.mode,opp:S.players.length-1,date:new Date().toISOString().slice(0,10)})});
+ list.sort((a,b)=>b.score-a.score);try{localStorage.setItem('bott-hs',JSON.stringify(list.slice(0,20)))}catch(e){}}
+
+/* ===================== TUTORIAL ===================== */
+let TUT=null;
+function tutTarget(kind){if(VIEW<0)return null;
+ if(kind==='unit'){const u=unitsOf(VIEW)[0];return u?[u.x,u.y]:null}
+ if(kind==='capital'){const c=citiesOf(VIEW).find(c=>c.capital)||citiesOf(VIEW)[0];return c?[c.x,c.y]:null}
+ if(kind==='harvest'){for(let y=0;y<S.h;y++)for(let x=0;x<S.w;x++){const h=harvestInfo(VIEW,x,y);if(h&&h.ok)return[x,y]}return null}
+ if(kind==='village'){const cap=citiesOf(VIEW)[0],ex=S.players[VIEW].explored;let best=null,bd=1e9;for(const c of S.cities){if(c.owner>=0||!ex[K(c.x,c.y)])continue;const d=cap?cheb(c.x,c.y,cap.x,cap.y):0;if(d<bd){bd=d;best=[c.x,c.y]}}return best}
+ return null}
+const TSTEPS=[
+ {t:'Welcome, leader!',x:()=>`You lead ${esc(FAC(VIEW).name)}. This short tour shows the basics. You can skip it any time.`,next:true},
+ {t:'Select your unit',x:()=>'Tap your unit on the map to select it.',tg:'unit',done:()=>sel?.kind==='unit'&&getUnit(sel.id)?.owner===VIEW},
+ {t:'Move it',x:()=>'The white tiles show where it can go. Tap one to move there and uncover the map.',done:()=>TUT.flags.moved},
+ {t:'Your capital',x:()=>'Tap your capital. You see its income, its growth and the units it can train.',tg:'capital',done:()=>sel?.kind==='city'&&S.cities[sel.id].owner===VIEW},
+ {t:'Research',x:()=>'Tap <b>Research</b> at the top and learn a technology. Agriculture, Hunting and Navigation let you harvest food.',done:()=>S.players[VIEW].techs.length>TUT.base.techs},
+ {t:'Harvest',x:()=>'Tap a resource inside your borders (berries, deer, fish…) and harvest it. Population makes your city level up and earn more stars.',tg:'harvest',done:()=>TUT.flags.harvest},
+ {t:'Villages',x:()=>'Brown huts are free villages. Move a unit onto one. On your next turn, tap the unit and choose <b>Found city</b>.',tg:'village',next:true},
+ {t:'End your turn',x:()=>'Out of moves? Press <b>End turn</b>. You earn new stars at the start of every turn.',done:()=>S.turn>TUT.base.turn},
+ {t:'Combat',x:()=>'Enemies in range glow red. Tap once to preview the damage, tap again to attack. Forests, mountains and cities protect the defender.',next:true},
+ {t:'You are ready',x:()=>S.mode==='score'?`Have the highest score after turn ${S.limit}. Good luck!`:'Capture every rival city to win. Good luck!',next:true,last:true},
+];
+function startTut(){TUT={step:0,flags:{},base:null};tutBase()}
+function tutBase(){TUT.base={turn:S.turn,techs:VIEW>=0?S.players[VIEW].techs.length:0}}
+function endTut(){TUT=null;SET.tutSeen=true;saveSet();renderTut()}
+function tutNext(){TUT.step++;if(TUT.step>=TSTEPS.length){endTut();return}tutBase();tutUpdate()}
+function tutUpdate(){if(TUT&&mode==='game'&&myTurn()){const st=TSTEPS[TUT.step];if(st.done&&st.done()){sfx('level');tutNext();return}}renderTut()}
+function renderTut(){const el=$('#tut');const show=TUT&&mode==='game'&&myTurn()&&$('#pass').hidden;el.hidden=!show;$('#app').classList.toggle('tut-on',!!show);if(!show)return;
+ const st=TSTEPS[TUT.step];el.innerHTML=`<h4>${st.t}</h4><p>${st.x()}</p><div class="tf"><span class="tc">Step ${TUT.step+1} of ${TSTEPS.length}</span><span class="row" style="gap:6px">${st.next?'':'<button class="btn ghost" data-t="skipstep">Skip step</button>'}<button class="btn ghost" data-t="end">End tutorial</button>${st.next?`<button class="btn gold" data-t="next">${st.last?'Play':'Next'}</button>`:''}</span></div>`}
+$('#tut').addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(!b||!TUT)return;const a=b.dataset.t;if(a==='end')endTut();else tutNext()});
 
 /* ===================== MENU ===================== */
 const M=$('#mwrap');
-function emblem(cvs,fi){const c=cvs.getContext('2d'),d=2;cvs.width=64*d;cvs.height=64*d;const f=FACTIONS[fi];const prev=ctx;
- c.setTransform(d,0,0,d,0,0);const g=c.createLinearGradient(0,0,0,64);g.addColorStop(0,rgba(f.color,.35));g.addColorStop(1,rgba(f.color,.08));c.fillStyle=g;c.beginPath();c.roundRect(0,0,64,64,14);c.fill();
-ctx=c;const terr={shallow:'#4aa6cc',mountain:'#a99f8f',forest:'#6aa850',desert:'#e8cb8b',snow:'#e8eff4',grass:'#8cc75b'}[f.terrain];
- poly([32-26,44,32,57,32,63,6,50],shade(terr,-.3));poly([32,57,58,44,58,50,32,63],shade(terr,-.15));poly(diamond(32,44,26,13),terr);building(f.arch,32,46,1.3,f,false);ctx=prev}
-let seatsCfg=[],setupKind='solo';
+const ICONS={gear:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg>',
+ trophy:'<svg viewBox="0 0 24 24"><path d="M7 4h10v5a5 5 0 0 1-10 0V4zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4M12 14v4M8 21h8"/></svg>',
+ book:'<svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v14H6a2 2 0 0 0-2 2V5zM4 19a2 2 0 0 0 2 2h13v-4"/></svg>',
+ info:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>'};
+const REALM_TXT={
+ vellmar:'Reed-thatched halls stand on stilts above warm tidal flats. The Vellmar fish, sail and trade along every shore, and no realm moves faster on the water.',
+ korrund:'Deep in the Ash Peaks the forge fires never go out. Korrund clans dig ore from the mountain roots and turn every ridge into a fortress.',
+ sylvaine:'Under a roof of ancient branches the Grove Concord hunts in silence. Their wardens slip through forests where everyone else stumbles.',
+ ashkar:'Domed caravan towns dot the golden dunes. The Ashkar count their wealth in stars, and spend it before rivals have finished counting theirs.',
+ frosthal:'Timber longhouses huddle against an endless winter. A Frosthal shield wall has never broken, and their Shieldbearers come cheap.',
+ solenne:'White towers rise above terraced fields of grain. The Republic feeds its people first, and its capital is the richest city in the land.',
+ nyxar:'Lantern-lit spires pierce the evening woods. Nyxar archivists read the stars for knowledge, so every discovery costs them a little less.',
+ orrhan:'Felt tents roll across the open steppe. The Orrhan ride before they walk, and their very first warrior is already in the saddle.'};
+const DIO={
+ vellmar:{g:[['shallow','grass','shallow'],['grass','C','shallow'],['shallow','shallow','grass']],res:{'0,0':'fish','2,1':'fish','1,0':'fruit'}},
+ korrund:{g:[['mountain','mountain','grass'],['mountain','C','forest'],['grass','forest','grass']],res:{'0,0':'ore','1,0':'ore','1,2':'game','2,2':'fruit'}},
+ sylvaine:{g:[['forest','forest','grass'],['forest','C','forest'],['grass','forest','forest']],res:{'0,1':'game','2,0':'fruit','1,2':'game'}},
+ ashkar:{g:[['desert','desert','mountain'],['desert','C','desert'],['grass','desert','desert']],res:{'0,0':'oasis','2,2':'oasis','0,2':'fruit'},city:'desert'},
+ frosthal:{g:[['snow','snow','mountain'],['forest','C','snow'],['snow','forest','snow']],res:{'0,0':'pelts','2,2':'pelts'},city:'snow'},
+ solenne:{g:[['grass','grass','forest'],['grass','C','grass'],['mountain','grass','grass']],res:{'0,0':'crop','1,0':'crop','2,1':'fruit','2,2':'crop'}},
+ nyxar:{g:[['forest','mountain','forest'],['forest','C','grass'],['grass','forest','forest']],res:{'2,1':'fruit','0,1':'game'}},
+ orrhan:{g:[['grass','grass','grass'],['grass','C','grass'],['forest','grass','desert']],res:{'0,0':'game','2,0':'fruit','1,2':'game'}}};
+function diorama(cvs,fi,w){const f=FACTIONS[fi],L=DIO[f.id],h=Math.round(w*170/240);cvs.width=w*2;cvs.height=h*2;const c=cvs.getContext('2d'),prev=ctx;ctx=c;
+ try{const sc=w*2/240;c.setTransform(sc,0,0,sc,0,0);const ox=120,oy=40;
+  const Lx=ox-3*HW,Ly=oy+2*HH,Bx=ox,By=oy+5*HH,Rx=ox+3*HW,th=20;
+  poly([Lx,Ly,Bx,By,Bx,By+th,Lx,Ly+th],'#6b4a33');poly([Bx,By,Rx,Ly,Rx,Ly+th,Bx,By+th],'#87603f');
+  for(let s=0;s<=4;s++)for(let x=0;x<3;x++){const y=s-x;if(y<0||y>2)continue;const tt=L.g[y][x],isC=tt==='C';
+   const t={t:isC?(L.city||'grass'):tt,r:isC?null:(L.res[x+','+y]||null),imp:null,ruin:false};const X=ox+(x-y)*HW,Y=oy+(x+y)*HH;
+   drawTileBase(x+fi*5,y+fi*3,t,X,Y,2,1000);drawDecor(x+fi*5,y+fi*3,t,X,Y,1000);
+   if(isC){const ty=topY(t,Y);poly(diamond(X,ty,HW-8,HH-4),rgba(f.color,.35));for(const[dx,dy,sz]of[[0,-4,1.15],[-13,1,.85],[13,1,.85],[0,7,.8]])building(f.arch,X+dx,ty+dy,sz,f,false);
+    ctx.strokeStyle='#3a2e22';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(X+16,ty-2);ctx.lineTo(X+16,ty-32);ctx.stroke();poly([X+16,ty-32,X+28,ty-28,X+16,ty-24],f.color)}}
+ }finally{ctx=prev}}
+let seatsCfg=[],setupKind='solo',setupTut=false;
+function screen(title,back,body){M.innerHTML=`<div class="row" style="justify-content:space-between"><h1 class="logo" style="font-size:clamp(2rem,6vw,2.8rem)">${title}</h1><button class="btn" id="back">Back</button></div>${body}`;$('#back').onclick=back}
 function menuMain(){const hasSave=!!loadLocal();
- M.innerHTML=`<div><h1 class="logo">Tessera<br><span>Realms</span></h1><p class="tag">A turn-based strategy game of tiles and tough choices. Eight original realms, procedural islands, and one question every turn: grow, build, research or strike?</p></div>
- <div class="modes">${hasSave?`<button class="mode" id="mCont"><b>Continue</b><span>Pick up your saved game.</span></button>`:''}
- <button class="mode" id="mSolo"><b>Solo vs AI</b><span>You against 1 to 7 computer realms.</span></button>
- <button class="mode" id="mHot"><b>Hotseat</b><span>2 to 8 players share one device, with AI realms if you like.</span></button>
- ${window.claude?`<button class="mode" id="mOnline"><b>Online room</b><span>Create or join a room with a code. Turns sync live.</span></button>`:''}</div>
- <div class="card"><h2>The eight realms</h2><div class="facs" id="facGal"></div></div>
- <div class="card"><h2>How to play</h2><p class="note">Tap a unit to see where it can move (white) and what it can attack (red). Tap a red target once for a damage preview, twice to strike. Park a unit on a village and choose <b>Found city</b> next turn to claim it. Tap tiles inside your borders to harvest resources: each harvest adds population, and full population levels a city up for a reward. Stars come in every turn; spend them on units, buildings and the research tree. Drag to pan, scroll or pinch to zoom.</p></div>`;
- const gal=$('#facGal');FACTIONS.forEach((f,i)=>{const d=document.createElement('div');d.className='fac';d.innerHTML=`<canvas></canvas><div style="min-width:0"><div class="fn" style="color:${f.color}">${f.name}</div><div class="fe">${f.epithet}</div><div class="fb">${f.bonus}</div><div class="ft">Starts with ${TECHMAP[f.tech].name} · Led by ${f.leader}</div></div>`;gal.appendChild(d);emblem(d.querySelector('canvas'),i)});
- if(hasSave)$('#mCont').onclick=continueLocal;$('#mSolo').onclick=()=>setup('solo');$('#mHot').onclick=()=>setup('hot');if($('#mOnline'))$('#mOnline').onclick=onlineMenu}
+ M.innerHTML=`<div><h1 class="logo">Battle of<br><span>the Tiles</span></h1><p class="tag">A turn-based strategy game of tiles and tough choices. Grow, build, research or strike?</p></div>
+ <div class="menu-main">
+  <button class="bigbtn gold" id="mNew">New game <small>vs AI</small></button>
+  ${hasSave?'<button class="bigbtn" id="mCont">Resume game <small>saved</small></button>':''}
+  <button class="bigbtn" id="mMulti">Multiplayer <small>${ONLINE_OK?'hotseat · online':'hotseat'}</small></button>
+  <button class="bigbtn" id="mTut">Tutorial <small>5 minutes</small></button>
+ </div>
+ <div class="iconrow">
+  <button class="iconbtn" id="mSet"><span class="ic">${ICONS.gear}</span>Settings</button>
+  <button class="iconbtn" id="mHS"><span class="ic">${ICONS.trophy}</span>High scores</button>
+  <button class="iconbtn" id="mRealms"><span class="ic">${ICONS.book}</span>Realms</button>
+  <button class="iconbtn" id="mAbout"><span class="ic">${ICONS.info}</span>About</button>
+ </div>`;
+ $('#mNew').onclick=()=>realmPicker('pick');if(hasSave)$('#mCont').onclick=continueLocal;$('#mMulti').onclick=multiMenu;
+ $('#mTut').onclick=()=>startLocal({size:12,seats:[{f:5,human:true},{f:2,human:false}],mode:'dom',limit:30,diff:'easy'},true);
+ $('#mSet').onclick=showSettings;$('#mHS').onclick=highScores;$('#mRealms').onclick=()=>realmPicker('browse');$('#mAbout').onclick=aboutScreen}
+function realmPicker(how){screen(how==='pick'?'Pick your realm':'The eight realms',menuMain,`<div class="card"><div class="realmgrid" id="rg"></div>${how==='pick'?'<div class="row" style="justify-content:center;margin-top:16px"><button class="btn gold" id="rand">Random realm</button></div>':''}</div>`);
+ const g=$('#rg');FACTIONS.forEach((f,i)=>{const b=document.createElement('button');b.className='realm';b.innerHTML=`<canvas></canvas><b style="color:${f.color}">${f.name}</b><span>${f.epithet}</span>`;b.onclick=()=>realmDetail(i,how);g.appendChild(b);diorama(b.querySelector('canvas'),i,120)});
+ if(how==='pick')$('#rand').onclick=()=>setup('solo',Math.floor(Math.random()*8))}
+function realmDetail(i,how){const f=FACTIONS[i];
+ openModal(`<div class="rdetail"><canvas id="dioBig"></canvas><div style="min-width:0"><h2 style="color:${f.color}">${f.name}</h2><div class="owner" style="font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em">${f.epithet}</div>
+ <p class="note" style="color:var(--text);margin:.7rem 0">${REALM_TXT[f.id]}</p>
+ <div class="stats">${stat('Starting tech',TECHMAP[f.tech].name)}${stat('Leader',f.leader)}</div><p class="hint" style="margin:.2rem 0 0"><b style="color:var(--gold)">Bonus:</b> ${f.bonus}</p></div></div>
+ <div class="acts" style="justify-content:space-between;margin-top:16px"><button class="btn" data-x="close">Back</button>${how==='pick'?`<button class="btn gold" data-x="pickrealm" data-v="${i}">Pick ${f.name}</button>`:''}</div>`);
+ diorama($('#dioBig'),i,260)}
+function multiMenu(){screen('Multiplayer',menuMain,`<div class="modes">
+ <button class="mode" id="mpHot"><b>Hotseat</b><span>2 to 8 players take turns on this device. The board hides between turns so nobody peeks.</span></button>
+ ${ONLINE_OK?'<button class="mode" id="mpOn"><b>Online room</b><span>Create or join a room with a 5-letter code. Turns sync to everyone.</span></button>':'<div class="mode" style="opacity:.6"><b>Online room</b><span>Online rooms work in the claude.ai version of the game. Here you can play hotseat.</span></div>'}</div>`);
+ $('#mpHot').onclick=()=>setup('hot');if(ONLINE_OK)$('#mpOn').onclick=onlineMenu}
+function highScores(){const hs=loadHS();
+ screen('High scores',menuMain,`<div class="card">${hs.length?`<div style="overflow-x:auto"><table class="sc"><tr><th class="r">#</th><th>Realm</th><th class="r">Score</th><th>Result</th><th class="r">Turns</th><th>Map</th><th>Date</th></tr>${hs.map((h,i)=>{const f=FACTIONS[h.f];return`<tr><td class="r">${i+1}</td><td><span class="fdot" style="display:inline-block;background:${f.color};margin-right:8px"></span>${f.name}</td><td class="r">${h.score.toLocaleString()}</td><td>${h.win?'<b style="color:var(--mint)">Victory</b>':'Defeat'}</td><td class="r">${h.turn}</td><td>${h.size}×${h.size} · ${h.mode==='score'?'Score':'Domination'} · ${h.opp} rival${h.opp===1?'':'s'}</td><td>${h.date}</td></tr>`}).join('')}</table></div>
+ <div class="row" style="margin-top:12px"><button class="btn ghost" id="clr">Clear high scores</button></div>`:'<p class="note">No finished games yet. Win or lose a game and your score lands here.</p>'}</div>`);
+ const c=$('#clr');if(c)c.onclick=()=>{if(c.dataset.sure){try{localStorage.removeItem('bott-hs')}catch(e){}highScores()}else{c.dataset.sure=1;c.textContent='Tap again to clear'}}}
+function aboutScreen(){screen('About',menuMain,`<div class="card"><h2>How to play</h2><p class="note">Tap a unit to see where it can move (white) and what it can attack (red). Tap a red target once for a damage preview, twice to strike. Park a unit on a village and choose <b>Found city</b> next turn to claim it. Tap tiles inside your borders to harvest resources: each harvest adds population, and full population levels a city up for a reward. Stars come in every turn; spend them on units, buildings and research. Drag to pan, scroll or pinch to zoom.</p></div>
+ <div class="card"><h2>Made from scratch</h2><p class="note">Every realm, building, unit and tile in Battle of the Tiles is drawn in code, and the soundtrack is generated live in your browser. Your settings, saved game and high scores stay in this browser.</p></div>`)}
+function showSettings(){const tg=(id,on,label)=>`<button class="toggle" id="${id}" aria-pressed="${on}" aria-label="${label}"></button>`;
+ openModal(`<div class="mhead"><h2>Settings</h2><button class="btn" data-x="close">Done</button></div>
+ <div class="set-row"><div><b>Music</b><div class="hint" style="margin:0">A calm soundtrack, generated live</div></div><div class="row"><input type="range" id="sMusV" min="0" max="1" step="0.05" value="${SET.musicVol}" aria-label="Music volume">${tg('sMus',SET.music,'Music')}</div></div>
+ <div class="set-row"><div><b>Sound effects</b><div class="hint" style="margin:0">Moves, battles, captures</div></div><div class="row"><input type="range" id="sSfxV" min="0" max="1" step="0.05" value="${SET.sfxVol}" aria-label="Sound effects volume">${tg('sSfx',SET.sfx,'Sound effects')}</div></div>
+ <div class="set-row"><div><b>AI speed</b><div class="hint" style="margin:0">How long you watch rival moves</div></div><select id="sAi" aria-label="AI speed">${['slow','normal','fast','instant'].map(v=>`<option value="${v}" ${SET.aiSpeed===v?'selected':''}>${v[0].toUpperCase()+v.slice(1)}</option>`).join('')}</select></div>
+ <div class="set-row" style="border:0"><div><b>Tutorial</b><div class="hint" style="margin:0">Show the guided tour in your next game</div></div>${tg('sTut',!SET.tutSeen,'Tutorial')}</div>`,'420px');
+ const flip=b=>{const v=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',v);return v};
+ $('#sMus').onclick=e=>{SET.music=flip(e.currentTarget);saveSet();SET.music?musicStart():musicStop()};
+ $('#sSfx').onclick=e=>{SET.sfx=flip(e.currentTarget);saveSet()};
+ $('#sTut').onclick=e=>{SET.tutSeen=!flip(e.currentTarget);saveSet()};
+ $('#sMusV').oninput=e=>{SET.musicVol=+e.target.value;if(AU.mus)AU.mus.gain.value=SET.musicVol*.6;saveSet()};
+ $('#sSfxV').oninput=e=>{SET.sfxVol=+e.target.value;if(AU.sfx)AU.sfx.gain.value=SET.sfxVol;saveSet()};
+ $('#sSfxV').onchange=()=>sfx('capture');
+ $('#sAi').onchange=e=>{SET.aiSpeed=e.target.value;saveSet()}}
 function defaultSeats(kind){const n=kind==='solo'?4:kind==='online'?2:3;const out=[];for(let i=0;i<n;i++)out.push({f:i*3%8,human:kind==='hot'?i<2:i===0,ai:kind==='online'?false:!(kind==='hot'?i<2:i===0)});return out}
-function setup(kind){setupKind=kind;seatsCfg=defaultSeats(kind);renderSetup()}
-function renderSetup(){const kind=setupKind,title={solo:'Solo vs AI',hot:'Hotseat',online:'New online room'}[kind];
- M.innerHTML=`<div class="row" style="justify-content:space-between"><h1 class="logo" style="font-size:2.6rem">${title}</h1><button class="btn" id="back">Back</button></div>
- <div class="card"><h2>${kind==='solo'?'Choose your realm':'Players'}</h2>${kind==='solo'?'<div class="facs" id="pick"></div><div class="sec" style="margin-top:14px">Opponents</div>':''}<div class="seats" id="seats"></div><div class="row" style="margin-top:10px"><button class="btn" id="addSeat">Add ${kind==='solo'?'opponent':'player'}</button></div></div>
+function setup(kind,f){setupKind=kind;seatsCfg=defaultSeats(kind);setupTut=kind!=='online'&&!SET.tutSeen;
+ if(f!=null){const o=seatsCfg.findIndex(s=>s.f===f);if(o>0)seatsCfg[o].f=seatsCfg[0].f;seatsCfg[0].f=f}renderSetup()}
+function renderSetup(){const kind=setupKind,title={solo:'Solo vs AI',hot:'Hotseat',online:'New online room'}[kind],me=FACTIONS[seatsCfg[0].f];
+ M.innerHTML=`<div class="row" style="justify-content:space-between"><h1 class="logo" style="font-size:clamp(2rem,6vw,2.8rem)">${title}</h1><button class="btn" id="back">Back</button></div>
+ ${kind==='solo'?`<div class="card"><div class="row" style="flex-wrap:nowrap"><canvas id="meDio" style="width:120px;height:85px;flex:none"></canvas><div style="min-width:0"><div class="fn" style="font-family:var(--display);font-weight:800;font-size:1.5rem;color:${me.color}">${me.name}</div><div class="hint" style="margin:0">${me.bonus}</div><button class="btn" id="chg" style="margin-top:8px">Change realm</button></div></div></div>`:''}
+ <div class="card"><h2>${kind==='solo'?'Opponents':'Players'}</h2><div class="seats" id="seats"></div><div class="row" style="margin-top:10px"><button class="btn" id="addSeat">Add ${kind==='solo'?'opponent':'player'}</button></div></div>
  <div class="card"><h2>World</h2><div class="row">
   <div class="field"><label for="optSize">Map size</label><select id="optSize"><option value="12">Small · 12×12</option><option value="16" selected>Medium · 16×16</option><option value="20">Large · 20×20</option></select></div>
   <div class="field"><label for="optMode">Victory</label><select id="optMode"><option value="dom">Domination</option><option value="score">Score · turn limit</option></select></div>
   <div class="field"><label for="optLimit">Turn limit</label><select id="optLimit"><option>20</option><option selected>30</option><option>45</option></select></div>
-  <div class="field"><label for="optDiff">AI strength</label><select id="optDiff"><option value="easy">Easy</option><option value="normal" selected>Normal</option><option value="hard">Hard</option></select></div></div></div>
+  <div class="field"><label for="optDiff">AI strength</label><select id="optDiff"><option value="easy">Easy</option><option value="normal" selected>Normal</option><option value="hard">Hard</option></select></div>
+  ${kind!=='online'?`<div class="field"><label for="optTut">Tutorial</label><button class="toggle" id="optTut" aria-pressed="${setupTut}"></button></div>`:''}</div></div>
  <div class="row"><button class="btn gold" id="go" style="font-size:1.1rem;padding:.8rem 1.4rem">${kind==='online'?'Create room':'Start game'}</button><span class="err" id="serr"></span></div>`;
- $('#back').onclick=()=>kind==='online'?onlineMenu():menuMain();
- if(kind==='solo'){const pk=$('#pick');FACTIONS.forEach((f,i)=>{const b=document.createElement('button');b.className='fac'+(seatsCfg[0].f===i?' on':'');b.innerHTML=`<canvas></canvas><div style="min-width:0"><div class="fn" style="color:${f.color}">${f.name}</div><div class="fe">${f.epithet}</div><div class="fb">${f.bonus}</div></div>`;b.onclick=()=>{const o=seatsCfg.findIndex((s,j)=>j>0&&s.f===i);if(o>0)seatsCfg[o].f=seatsCfg[0].f;seatsCfg[0].f=i;renderSetup()};pk.appendChild(b);emblem(b.querySelector('canvas'),i)})}
+ $('#back').onclick=()=>kind==='online'?onlineMenu():kind==='hot'?multiMenu():realmPicker('pick');
+ if(kind==='solo'){diorama($('#meDio'),seatsCfg[0].f,120);$('#chg').onclick=()=>realmPicker('pick')}
+ if($('#optTut'))$('#optTut').onclick=e=>{setupTut=!setupTut;e.currentTarget.setAttribute('aria-pressed',setupTut)};
  const ss=$('#seats');seatsCfg.forEach((s,i)=>{if(kind==='solo'&&i===0)return;const r=document.createElement('div');r.className='seat';
   const label=kind==='solo'?'AI '+i:'Player '+(i+1);
   r.innerHTML=`<span class="sn">${label}</span><span class="fdot" style="background:${FACTIONS[s.f].color}"></span><select data-i="${i}" data-k="f" aria-label="Realm for ${label}">${FACTIONS.map((f,j)=>`<option value="${j}" ${j===s.f?'selected':''}>${f.name}</option>`).join('')}</select>
@@ -855,19 +1046,19 @@ function renderSetup(){const kind=setupKind,title={solo:'Solo vs AI',hot:'Hotsea
   if(cfg.size===12&&seatsCfg.length>5){$('#serr').textContent='Small maps fit up to 5 realms. Pick a bigger map.';return}
   if(kind==='online'){createRoom(cfg);return}
   if(kind==='hot'&&seatsCfg.filter(s=>!s.ai).length<1){$('#serr').textContent='At least one human player is needed.';return}
-  const seats=seatsCfg.map(s=>({f:s.f,human:!s.ai}));seats.sort((a,b)=>b.human-a.human);startLocal({...cfg,seats,hot:kind==='hot'})}}
+  const seats=seatsCfg.map(s=>({f:s.f,human:!s.ai}));seats.sort((a,b)=>b.human-a.human);startLocal({...cfg,seats,hot:kind==='hot'},setupTut)}}
 
 /* ===================== ONLINE ===================== */
 async function getOnline(){if(online)return online;if(!window.claude||!window.claude.use)return null;
  try{const db=await window.claude.use('db'),user=await window.claude.use('user');if(!db||!user)return null;const me=await user.id();if(!me)return null;online={db,user,me,unsub:null,code:null,rev:0,room:null};return online}catch(e){return null}}
-async function onlineMenu(){M.innerHTML=`<div class="row" style="justify-content:space-between"><h1 class="logo" style="font-size:2.6rem">Online room</h1><button class="btn" id="back">Back</button></div><div class="card"><p class="note" id="ostat">Connecting…</p></div>`;$('#back').onclick=menuMain;
+async function onlineMenu(){M.innerHTML=`<div class="row" style="justify-content:space-between"><h1 class="logo" style="font-size:2.6rem">Online room</h1><button class="btn" id="back">Back</button></div><div class="card"><p class="note" id="ostat">Connecting…</p></div>`;$('#back').onclick=multiMenu;
  const o=await getOnline();if(mode!=='menu')return;
  if(!o){$('#ostat').innerHTML='Online play is not available in this view. Open this page while signed in to claude.ai (players need access to the page) and try again. Solo and hotseat work everywhere.';return}
  M.innerHTML=`<div class="row" style="justify-content:space-between"><h1 class="logo" style="font-size:2.6rem">Online room</h1><button class="btn" id="back">Back</button></div>
  <div class="modes"><div class="card"><h2>Host</h2><p class="note">Set up realms and the map, then share the room code. Empty seats can be filled by AI.</p><div class="row" style="margin-top:10px"><button class="btn gold" id="host">Create a room</button></div></div>
  <div class="card"><h2>Join</h2><p class="note">Enter the 5-letter code from your host.</p><div class="row" style="margin-top:10px"><input type="text" id="jcode" maxlength="5" placeholder="CODE" aria-label="Room code" style="text-transform:uppercase;width:8rem;font-weight:700;letter-spacing:.1em"><button class="btn gold" id="join">Join</button></div><p class="err" id="jerr"></p></div></div>
  <p class="note">Online games are turn-by-turn: each player moves on their own turn and the board updates for everyone. You can close the page and come back with the code.</p>`;
- $('#back').onclick=menuMain;$('#host').onclick=()=>setup('online');$('#join').onclick=()=>joinRoom($('#jcode').value.trim().toUpperCase())}
+ $('#back').onclick=multiMenu;$('#host').onclick=()=>setup('online');$('#join').onclick=()=>joinRoom($('#jcode').value.trim().toUpperCase())}
 function genCode(){const a='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let s='';for(let i=0;i<5;i++)s+=a[Math.floor(Math.random()*a.length)];return s}
 async function createRoom(cfg){const o=await getOnline();if(!o)return onlineMenu();const code=genCode();const seats=seatsCfg.map((s,i)=>({f:s.f,ai:!!s.ai,uid:i===0?o.me:null}));
  try{await o.db.doc('rooms/'+code).set({status:'lobby',host:o.me,seats,cfg,state:null,rev:0});subscribeRoom(code)}catch(e){$('#serr').textContent='Could not create the room ('+(e.code||'error')+').'}}
