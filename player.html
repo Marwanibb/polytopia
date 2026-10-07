@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Battle of the Tiles</title>
-<meta name="description" content="A turn-based strategy game of tiles and tough choices. Play right in the post.">
+<title>Xtopia</title>
+<meta name="description" content="A turn-based strategy game. Build, expand and conquer. Play right in the post.">
 <!-- X / Twitter player card: the game plays inside the post -->
 <meta name="twitter:card" content="player">
-<meta name="twitter:site" content="@paypaliskingfun">
-<meta name="twitter:title" content="Battle of the Tiles">
-<meta name="twitter:description" content="Eight realms, one map. Tap to play right here.">
+<meta name="twitter:site" content="@Marwanibb">
+<meta name="twitter:title" content="Xtopia">
+<meta name="twitter:description" content="Build your realm. Conquer the map. Play Xtopia directly inside X.">
 <meta name="twitter:url" content="https://polytopia-wine.vercel.app/">
 <meta name="twitter:player" content="https://polytopia-wine.vercel.app/player.html">
 <meta name="twitter:player:width" content="1200">
@@ -17,8 +17,8 @@
 <meta name="twitter:image" content="https://polytopia-wine.vercel.app/preview.png">
 <!-- Open Graph fallback for other sites -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Battle of the Tiles">
-<meta property="og:description" content="A turn-based strategy game of tiles and tough choices.">
+<meta property="og:title" content="Xtopia">
+<meta property="og:description" content="A turn-based strategy game. Build, expand and conquer.">
 <meta property="og:url" content="https://polytopia-wine.vercel.app/">
 <meta property="og:image" content="https://polytopia-wine.vercel.app/preview.png">
 <style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
@@ -968,7 +968,7 @@ function diorama(cvs,fi,w){const f=FACTIONS[fi],L=DIO[f.id],h=Math.round(w*170/2
 let seatsCfg=[],setupKind='solo',setupTut=false;
 function screen(title,back,body){M.innerHTML=`<div class="row" style="justify-content:space-between"><h1 class="logo" style="font-size:clamp(2rem,6vw,2.8rem)">${title}</h1><button class="btn" id="back">Back</button></div>${body}`;$('#back').onclick=back}
 function menuMain(){const hasSave=!!loadLocal();
- M.innerHTML=`<div><h1 class="logo">Battle of<br><span>the Tiles</span></h1><p class="tag">A turn-based strategy game of tiles and tough choices. Grow, build, research or strike?</p></div>
+ M.innerHTML=`<div><h1 class="logo">Battle of<br><span>the Tiles</span></h1><p class="tag">A turn-based strategy game. Build, expand and conquer. Grow, build, research or strike?</p></div>
  <div class="menu-main">
   <button class="bigbtn gold" id="mNew">New game <small>vs AI</small></button>
   ${hasSave?'<button class="bigbtn" id="mCont">Resume game <small>saved</small></button>':''}
@@ -1002,7 +1002,7 @@ function highScores(){const hs=loadHS();
  <div class="row" style="margin-top:12px"><button class="btn ghost" id="clr">Clear high scores</button></div>`:'<p class="note">No finished games yet. Win or lose a game and your score lands here.</p>'}</div>`);
  const c=$('#clr');if(c)c.onclick=()=>{if(c.dataset.sure){try{localStorage.removeItem('bott-hs')}catch(e){}highScores()}else{c.dataset.sure=1;c.textContent='Tap again to clear'}}}
 function aboutScreen(){screen('About',menuMain,`<div class="card"><h2>How to play</h2><p class="note">Tap a unit to see where it can move (white) and what it can attack (red). Tap a red target once for a damage preview, twice to strike. Park a unit on a village and choose <b>Found city</b> next turn to claim it. Tap tiles inside your borders to harvest resources: each harvest adds population, and full population levels a city up for a reward. Stars come in every turn; spend them on units, buildings and research. Drag to pan, scroll or pinch to zoom.</p></div>
- <div class="card"><h2>Made from scratch</h2><p class="note">Every realm, building, unit and tile in Battle of the Tiles is drawn in code, and the soundtrack is generated live in your browser. Your settings, saved game and high scores stay in this browser.</p></div>`)}
+ <div class="card"><h2>Made from scratch</h2><p class="note">Every realm, building, unit and tile in Xtopia is drawn in code, and the soundtrack is generated live in your browser. Your settings, saved game and high scores stay in this browser.</p></div>`)}
 function showSettings(){const tg=(id,on,label)=>`<button class="toggle" id="${id}" aria-pressed="${on}" aria-label="${label}"></button>`;
  openModal(`<div class="mhead"><h2>Settings</h2><button class="btn" data-x="close">Done</button></div>
  <div class="set-row"><div><b>Music</b><div class="hint" style="margin:0">A calm soundtrack, generated live</div></div><div class="row"><input type="range" id="sMusV" min="0" max="1" step="0.05" value="${SET.musicVol}" aria-label="Music volume">${tg('sMus',SET.music,'Music')}</div></div>

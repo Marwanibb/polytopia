@@ -1,1 +1,1 @@
-Battle of the Tiles — X Player Card deployment. Root contains card metadata; player.html contains the original game.
+Xtopia — X Player Card deployment. Root contains card metadata; player.html contains the original game.
